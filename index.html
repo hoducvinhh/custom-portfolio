@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Văn A — Full Stack Developer</title>
+    <title>Hồ Đức Vinh — Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="icon" type="image/png" href="./public/image.png">
+
     <style>
         :root {
             --bg: #0d1117;
@@ -848,6 +850,107 @@
             outline: 2px solid var(--blue);
             outline-offset: 2px;
         }
+
+        /* ---------- Animations ---------- */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero entrance (plays once on load, staggered) */
+        .hero-intro,
+        .hero-name,
+        .hero-title,
+        .hero-desc,
+        .hero-actions,
+        .editor-panel,
+        .avatar-row {
+            opacity: 0;
+            animation: fadeUp .6s ease forwards;
+        }
+
+        .hero-intro {
+            animation-delay: .05s;
+        }
+
+        .hero-name {
+            animation-delay: .15s;
+        }
+
+        .hero-title {
+            animation-delay: .25s;
+        }
+
+        .hero-desc {
+            animation-delay: .35s;
+        }
+
+        .hero-actions {
+            animation-delay: .45s;
+        }
+
+        .editor-panel {
+            animation-delay: .2s;
+        }
+
+        .avatar-row {
+            animation-delay: .55s;
+        }
+
+        /* Scroll-triggered reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-grid .reveal:nth-child(2) {
+            transition-delay: .1s;
+        }
+
+        .skill-groups .reveal:nth-child(2) {
+            transition-delay: .1s;
+        }
+
+        .skill-groups .reveal:nth-child(3) {
+            transition-delay: .2s;
+        }
+
+        .project-grid .reveal:nth-child(2) {
+            transition-delay: .08s;
+        }
+
+        .project-grid .reveal:nth-child(3) {
+            transition-delay: .16s;
+        }
+
+        .project-grid .reveal:nth-child(4) {
+            transition-delay: .24s;
+        }
+
+        .cert-list .reveal:nth-child(2) {
+            transition-delay: .1s;
+        }
+
+        .cert-list .reveal:nth-child(3) {
+            transition-delay: .2s;
+        }
+
+        .timeline .reveal:nth-child(2) {
+            transition-delay: .15s;
+        }
     </style>
 </head>
 
@@ -883,17 +986,19 @@
             <div class="container hero-grid">
                 <div>
                     <div class="hero-intro">xin chào, tôi là</div>
-                    <h1 class="hero-name">Nguyễn Văn A</h1>
+                    <h1 class="hero-name">Hồ Đức Vinh</h1>
                     <div class="hero-title"><span class="kw">const</span> role = <span style="color:var(--green)">"Full
-                            Stack Developer"</span></div>
+                            Stack/Backend Developer"</span></div>
                     <p class="hero-desc">
                         Mình xây dựng ứng dụng web và mobile trọn vẹn từ backend đến frontend —
-                        tập trung vào Java/Spring Boot, React và Flutter. Thích tối ưu hệ thống,
-                        nghịch IoT, và học công nghệ mới mỗi ngày.
+                        tập trung vào Java/Spring Boot, JavaScript/Express.js. Thích
+                        tối ưu hệ thống,
+                        và học công nghệ mới mỗi ngày.
                     </p>
                     <div class="hero-actions">
                         <a class="btn btn-primary" href="#" download>⭳ Download CV</a>
-                        <a class="btn btn-ghost" href="https://github.com/" target="_blank" rel="noopener">⌥ GitHub</a>
+                        <a class="btn btn-ghost" href="https://github.com/hoducvinhh" target="_blank" rel="noopener">⌥
+                            GitHub</a>
                     </div>
                 </div>
 
@@ -909,7 +1014,7 @@
                     </div>
                     <div class="avatar-row">
                         <div class="avatar">NA</div>
-                        <div class="meta"><b>Nguyễn Văn A</b><br>Đà Nẵng, Việt Nam</div>
+                        <div class="meta"><b>Hồ Đức Vinh</b><br>Hà Nội, Việt Nam</div>
                     </div>
                 </div>
             </div>
@@ -923,18 +1028,18 @@
                         class="filename">About.md</span>
                 </div>
                 <div class="about-grid">
-                    <div class="md-block">
+                    <div class="md-block reveal">
                         <div class="md-h">Giới thiệu ngắn</div>
                         <p>
                             Mình là sinh viên/kỹ sư phần mềm với thế mạnh phát triển backend bằng Java và
                             Spring Boot, kết hợp xây dựng giao diện với React cho web và Flutter cho mobile.
-                            Đã tham gia một số dự án thực tế từ quản lý dữ liệu, thương mại điện tử đến IoT.
+                            Đã tham gia một số dự án thực tế từ quản lý dữ liệu, thương mại điện tử.
                         </p>
                     </div>
-                    <div class="md-block">
+                    <div class="md-block reveal">
                         <div class="md-h">Mục tiêu nghề nghiệp</div>
                         <p>
-                            Trở thành Full Stack Developer vững chuyên môn, có khả năng thiết kế hệ thống
+                            Trở thành Full Stack/Backend Developer vững chuyên môn, có khả năng thiết kế hệ thống
                             backend hiệu quả và trải nghiệm người dùng mượt mà. Hướng tới vị trí Backend/Full Stack
                             tại môi trường năng động, nơi có thể học hỏi kiến trúc hệ thống lớn và làm việc nhóm chuyên
                             nghiệp.
@@ -952,18 +1057,21 @@
                         class="filename">Skills.json</span>
                 </div>
 
-                <div class="skills-json">{<br>
+                <div class="skills-json reveal">{<br>
                     &nbsp;&nbsp;<span class="k">"backend"</span>: [<span class="s">"Java"</span>, <span
                         class="s">"Spring Boot"</span>, <span class="s">"REST API"</span>, <span
-                        class="s">"MySQL"</span>],<br>
-                    &nbsp;&nbsp;<span class="k">"frontend_mobile"</span>: [<span class="s">"React"</span>, <span
-                        class="s">"Flutter"</span>, <span class="s">"Firebase"</span>],<br>
+                        class="s">"MySQL"</span>
+                    <span class="s">"Nest.js"</span>, <span class="s">"Express.js"</span>],<br>
+                    &nbsp;&nbsp;<span class="k">"frontend"</span>: [<span class="s">"React"</span>, <span
+                        class="s">"Flutter"</span>, <span class="s">"Next.js"</span>],<br>
                     &nbsp;&nbsp;<span class="k">"tools"</span>: [<span class="s">"Docker"</span>, <span
-                        class="s">"Git"</span>]<br>
-                    }</div>
+                        class="s">"Git"</span>,<span class="s">"VS Code"</span>,<span class="s">"Postman"</span>,<span
+                        class="s">"IntelliJ IDEA"</span>]<br>
+                    }
+                </div>
 
                 <div class="skill-groups">
-                    <div class="skill-group">
+                    <div class="skill-group reveal">
                         <h4>Backend</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">Java</span>
@@ -972,19 +1080,22 @@
                             <span class="skill-tag">MySQL</span>
                         </div>
                     </div>
-                    <div class="skill-group">
+                    <div class="skill-group reveal">
                         <h4>Frontend &amp; Mobile</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">React</span>
                             <span class="skill-tag">Flutter</span>
-                            <span class="skill-tag">Firebase</span>
+                            <span class="skill-tag">Next.js</span>
                         </div>
                     </div>
-                    <div class="skill-group">
+                    <div class="skill-group reveal">
                         <h4>Tools &amp; DevOps</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">Docker</span>
                             <span class="skill-tag">Git</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">Postman</span>
+                            <span class="skill-tag">IntelliJ IDEA</span>
                         </div>
                     </div>
                 </div>
@@ -1000,10 +1111,10 @@
                 </div>
 
                 <div class="project-grid">
-                    <div class="project-card">
+                    <div class="project-card reveal">
                         <div class="project-thumb thumb-1" data-tag="Web App">📚</div>
                         <div class="project-body">
-                            <h3>Web Bán Sách</h3>
+                            <h3>Website Bán Sách</h3>
                             <p>Website thương mại điện tử bán sách với giỏ hàng, thanh toán, quản lý đơn hàng và trang
                                 quản trị cho admin.</p>
                             <div class="project-tech"><span>Java</span><span>Spring
@@ -1014,53 +1125,40 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="project-card">
-                        <div class="project-thumb thumb-2" data-tag="AI · Mobile">🧭</div>
+                    <div class="project-card reveal">
+                        <div class="project-thumb thumb-3" data-tag="Web App">📚</div>
                         <div class="project-body">
-                            <h3>AI Travel Planner</h3>
-                            <p>Ứng dụng mobile gợi ý lịch trình du lịch cá nhân hoá bằng AI, đồng bộ dữ liệu người dùng
-                                theo thời gian thực.</p>
-                            <div class="project-tech"><span>Flutter</span><span>Firebase</span><span>REST
-                                    API</span><span>Java</span></div>
+                            <h3>Website Mạng Xã Hội</h3>
+                            <p>Website mạng xã hội giúp người dùng kết nối, chia sẻ nội dung và tương tác với nhau, chia
+                                sẻ tin nhắn tức thì.</p>
+                            <div class="project-tech">
+                                <span>Javascript</span><span>Express.js</span><span>React</span><span>MongooDB</span><span></span>
+                            </div>
                             <div class="project-links">
                                 <a href="#" target="_blank" rel="noopener">↗ Demo</a>
-                                <a href="#" target="_blank" rel="noopener">⌥ GitHub</a>
+                                <a href="https://github.com/hoducvinhh/social-network-app" target="_blank"
+                                    rel="noopener">⌥ GitHub</a>
                             </div>
                         </div>
                     </div>
-
-                    <div class="project-card">
-                        <div class="project-thumb thumb-3" data-tag="Web App">🎓</div>
+                    <div class="project-card reveal">
+                        <div class="project-thumb thumb-2" data-tag="Mobile App">📱</div>
                         <div class="project-body">
-                            <h3>Quản Lý Sinh Viên</h3>
-                            <p>Hệ thống quản lý thông tin sinh viên, điểm số và lớp học cho phòng đào tạo, hỗ trợ phân
-                                quyền theo vai trò.</p>
-                            <div class="project-tech"><span>Java</span><span>Spring
-                                    Boot</span><span>MySQL</span><span>Git</span></div>
+                            <h3>Ứng dụng quản lý và học tập Quizz</h3>
+                            <p>Ứng dụng di động giúp người dùng tạo, theo dõi và quản lý danh sách các câu hỏi trắc
+                                nghiệm,
+                                với thông báo nhắc nhở.</p>
+                            <div class="project-tech"><span>Flutter</span><span>Firebase</span><span>Dart</span></div>
                             <div class="project-links">
                                 <a href="#" target="_blank" rel="noopener">↗ Demo</a>
-                                <a href="#" target="_blank" rel="noopener">⌥ GitHub</a>
+                                <a href="https://github.com/hoducvinhh/Learn_Flutter/tree/main/quiz-app-project"
+                                    target="_blank" rel="noopener">⌥ GitHub</a>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="project-card">
-                        <div class="project-thumb thumb-4" data-tag="IoT">🏠</div>
-                        <div class="project-body">
-                            <h3>IoT Smart Home</h3>
-                            <p>Hệ thống điều khiển thiết bị nhà thông minh qua ứng dụng mobile, kết nối cảm biến và
-                                relay qua giao thức MQTT.</p>
-                            <div class="project-tech"><span>Flutter</span><span>Firebase</span><span>REST
-                                    API</span><span>MQTT</span></div>
-                            <div class="project-links">
-                                <a href="#" target="_blank" rel="noopener">↗ Demo</a>
-                                <a href="#" target="_blank" rel="noopener">⌥ GitHub</a>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
-            </div>
         </section>
 
         <!-- EDUCATION -->
@@ -1071,16 +1169,17 @@
                         class="filename">Education.yaml</span>
                 </div>
                 <div class="timeline">
-                    <div class="tl-item">
-                        <div class="period">2021 — 2025</div>
-                        <h3>Đại học Công nghệ Thông tin</h3>
+                    <div class="tl-item reveal">
+                        <div class="period">2022 — 2027</div>
+                        <h3>Học Viện Kỹ Thuật Mật Mã - ACADEMY OF CRYPTOGRAPHY TECHNIQUES - KMA</h3>
+                        <b>GPA: 3.2/4.0</b>
                         <p>Chuyên ngành Kỹ thuật Phần mềm. Tập trung vào lập trình backend, cơ sở dữ liệu và phát triển
                             ứng dụng di động.</p>
                     </div>
-                    <div class="tl-item">
+                    <div class="tl-item reveal">
                         <div class="period">2018 — 2021</div>
-                        <h3>Trường THPT chuyên</h3>
-                        <p>Học chuyên Tin học, tham gia các cuộc thi lập trình cấp trường và cấp tỉnh.</p>
+                        <h3>Trường THPT QL3</h3>
+                        <p>Tham gia các cuộc thi cấp trường và cấp tỉnh.</p>
                     </div>
                 </div>
             </div>
@@ -1094,20 +1193,20 @@
                         class="filename">Certs.json</span>
                 </div>
                 <div class="cert-list">
-                    <div class="cert-card">
+                    <div class="cert-card reveal">
                         <span class="badge">Đã đạt</span>
-                        <h4>TOEIC 750+</h4>
+                        <h4>TOEIC 805+</h4>
                         <p>Chứng chỉ tiếng Anh quốc tế, cập nhật năm gần nhất.</p>
                     </div>
-                    <div class="cert-card">
+                    <div class="cert-card reveal">
                         <span class="badge pending">Đang học</span>
-                        <h4>JLPT N3</h4>
+                        <h4>JLPT N5</h4>
                         <p>Chứng chỉ năng lực tiếng Nhật, dự kiến thi trong thời gian tới.</p>
                     </div>
-                    <div class="cert-card">
+                    <div class="cert-card reveal">
                         <span class="badge">Đã đạt</span>
                         <h4>Chứng chỉ khác</h4>
-                        <p>Ví dụ: khoá học Spring Boot / AWS Cloud Practitioner / Coursera...</p>
+                        <p>Ví dụ: khoá học Spring Boot / Coursera...</p>
                     </div>
                 </div>
             </div>
@@ -1120,7 +1219,7 @@
                     <span class="tag">06</span><span class="section-title">Contact</span><span
                         class="filename">Contact.sh</span>
                 </div>
-                <div class="terminal">
+                <div class="terminal reveal">
                     <div class="editor-topbar">
                         <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
                         <span class="fname">bash — contact</span>
@@ -1128,19 +1227,25 @@
                     <div class="term-body">
                         <div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">cat
                                 email.txt</span></div>
-                        <div class="term-line">→ <a href="mailto:example@email.com">example@email.com</a></div>
+                        <div class="term-line">→ <a href="mailto:hoducvinh2k4@gmail.com">hoducvinh2k4@gmail.com</a>
+                        </div>
                         <div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">open
                                 github</span></div>
-                        <div class="term-line">→ <a href="https://github.com/" target="_blank"
-                                rel="noopener">github.com/yourusername</a></div>
-                        <div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">open
-                                linkedin</span></div>
-                        <div class="term-line">→ <a href="https://linkedin.com/" target="_blank"
-                                rel="noopener">linkedin.com/in/yourusername</a></div>
+                        <div class="term-line">→ <a href="https://github.com/hoducvinhh" target="_blank"
+                                rel="noopener">github.com/hoducvinhh</a></div>
                         <div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">open
                                 facebook</span></div>
-                        <div class="term-line">→ <a href="https://facebook.com/" target="_blank"
-                                rel="noopener">facebook.com/yourusername</a></div>
+                        <div class="term-line">→ <a href="https://www.facebook.com/h.ducvinhh134/" target="_blank"
+                                rel="noopener">facebook.com/h.ducvinhh134</a></div>
+                        <div class="term-line">
+                            <span class="term-prompt">$</span>
+                            <span class="term-cmd">open zalo</span>
+                        </div>
+                        <div class="term-line">
+                            → <a href="https://zalo.me/0979205738" target="_blank" rel="noopener">
+                                0979205738
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1148,15 +1253,15 @@
 
     </main>
 
-    <footer>© 2026 Nguyễn Văn A · built with HTML/CSS/JS</footer>
+    <footer>© 2026 Hồ Đức Vinh</footer>
 
     <script>
         // Typing effect for hero code block
         const codeLines = [
             "const developer = {",
-            "  name: \"Nguyễn Văn A\",",
+            "  name: \"Hồ Đức Vinh\",",
             "  title: \"Full Stack Developer\",",
-            "  stack: [\"Java\", \"Spring Boot\", \"React\", \"Flutter\"],",
+            "  stack: [\"Java\", \"Spring Boot\",\"Express.js\", \"Next.js\", \"Nest.js\", \"React\", \"Flutter\"],",
             "  location: \"Việt Nam\",",
             "  passion: \"building things that matter\"",
             "};"
@@ -1196,6 +1301,19 @@
         }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
 
         sections.forEach(s => s && observer.observe(s));
+
+        // Scroll-triggered reveal animation
+        const revealEls = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+        revealEls.forEach(el => revealObserver.observe(el));
     </script>
 
 </body>
