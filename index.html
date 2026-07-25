@@ -49,6 +49,29 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        .cursor-spotlight {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 9999;
+            mix-blend-mode: screen;
+            transform: translate3d(-50%, -50%, 0);
+            background:
+                radial-gradient(circle,
+                    rgba(121, 192, 255, 0.46) 0%,
+                    rgba(199, 146, 234, 0.28) 34%,
+                    rgba(121, 192, 255, 0.12) 54%,
+                    rgba(121, 192, 255, 0) 72%);
+            filter: blur(16px);
+            transition: opacity .35s ease;
+            will-change: transform, opacity;
+        }
+
         ::selection {
             background: var(--purple);
             color: #0d1117;
@@ -72,6 +95,10 @@
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
                 scroll-behavior: auto !important;
+            }
+
+            .cursor-spotlight {
+                display: none;
             }
         }
 
@@ -956,6 +983,8 @@
 
 <body>
 
+    <div class="cursor-spotlight" aria-hidden="true"></div>
+
     <div class="tabbar-wrap">
         <div class="tabbar-top">
             <span class="dot"></span><span class="dot"></span><span class="dot"></span>
@@ -1032,7 +1061,8 @@
                         <div class="md-h">Giới thiệu ngắn</div>
                         <p>
                             Mình là sinh viên/kỹ sư phần mềm với thế mạnh phát triển backend bằng Java và
-                            Spring Boot, kết hợp xây dựng giao diện với React cho web và Flutter cho mobile.
+                            Spring Boot, JavaScript và Nodejs, kết hợp xây dựng giao diện với React cho web và Flutter
+                            cho mobile.
                             Đã tham gia một số dự án thực tế từ quản lý dữ liệu, thương mại điện tử.
                         </p>
                     </div>
@@ -1078,6 +1108,9 @@
                             <span class="skill-tag">Spring Boot</span>
                             <span class="skill-tag">REST API</span>
                             <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Nest.js</span>
+
                         </div>
                     </div>
                     <div class="skill-group reveal">
@@ -1314,6 +1347,46 @@
         }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
         revealEls.forEach(el => revealObserver.observe(el));
+
+        // Soft cursor spotlight for pointer devices
+        const spotlight = document.querySelector('.cursor-spotlight');
+        const canUseSpotlight = window.matchMedia('(any-hover: hover) and (any-pointer: fine)').matches
+            && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (spotlight && canUseSpotlight) {
+            const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+            const targetPos = { x: pos.x, y: pos.y };
+            let isVisible = false;
+
+            function moveSpotlight() {
+                pos.x += (targetPos.x - pos.x) * 0.12;
+                pos.y += (targetPos.y - pos.y) * 0.12;
+                spotlight.style.transform = `translate3d(${pos.x - 190}px, ${pos.y - 190}px, 0)`;
+                requestAnimationFrame(moveSpotlight);
+            }
+
+            window.addEventListener('pointermove', event => {
+                targetPos.x = event.clientX;
+                targetPos.y = event.clientY;
+
+                if (!isVisible) {
+                    isVisible = true;
+                    spotlight.style.opacity = '1';
+                }
+            });
+
+            window.addEventListener('mouseleave', () => {
+                isVisible = false;
+                spotlight.style.opacity = '0';
+            });
+
+            window.addEventListener('blur', () => {
+                isVisible = false;
+                spotlight.style.opacity = '0';
+            });
+
+            requestAnimationFrame(moveSpotlight);
+        }
     </script>
 
 </body>
